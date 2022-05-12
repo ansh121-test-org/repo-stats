@@ -12,13 +12,27 @@ async function run() {
       repo: context.repo.repo,
     });
 
-    const pulls = await octokit.paginate(octokit.rest.pulls.list, {
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-    });
+    const issue_stats = {
+      open: 0,
+      closed: 0,
+    }
 
-    core.setOutput('pulls', pulls);
-    core.setOutput('issues', issues);
+    for(var issue in issues){
+      if(issue.state == 'open'){
+        issue_stats.open ++;
+      }
+      else{
+        issue_stats.closed ++;
+      }
+    }
+
+    // const pulls = await octokit.paginate(octokit.rest.pulls.list, {
+    //   owner: context.repo.owner,
+    //   repo: context.repo.repo,
+    // });
+
+    core.setOutput('pulls', 0);
+    core.setOutput('issues', issue_stats);
   } catch (error) {
     core.setFailed(error.message);
   }
