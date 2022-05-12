@@ -1,13 +1,14 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Get repo stats'
+description: 'Provides information about issues and pull requests present within the repo'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  token: 
+    description: 'GITHUB_TOKEN'
     required: true
-    default: '1000'
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  pulls: 
+    description: 'pull requests stats'
+  issues:
+    description: 'issues stats'
 runs:
   using: 'node16'
   main: 'dist/index.js'
