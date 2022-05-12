@@ -13,6 +13,10 @@ async function run() {
     });
 
     console.log(issues[0]);
+    console.log(issues[0].state);
+    console.log(typeof issues[0].state );
+    console.log(issues[0].state == 'open');
+    console.log(issues[0].state == "open");
 
     const issue_stats = {
       open: 0,
