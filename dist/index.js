@@ -8510,10 +8510,15 @@ async function run() {
       }
     }
     
-    // const pulls = await octokit.paginate(octokit.rest.pulls.list, {
-    //   owner: context.repo.owner,
-    //   repo: context.repo.repo,
-    // });
+    const pulls = await octokit.paginate(octokit.rest.pulls.list, {
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+    });
+
+    for(const pull of pulls){
+      console.log(pull.html_url);
+      console.log(pull.state);
+    }
 
     core.setOutput('pulls', 0);
     core.setOutput('issues', issue_stats);
