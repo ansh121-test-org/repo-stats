@@ -8474,7 +8474,7 @@ const core = __nccwpck_require__(2186);
 async function run() {
   try {
     const token = core.getInput('token');
-    const octokit = new github.octokit(token);
+    const octokit = github.getOctokit(token);
     const context = github.context;
 
     const issues = octokit.rest.issues.listForRepo({
