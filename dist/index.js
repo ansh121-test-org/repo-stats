@@ -8493,7 +8493,7 @@ async function run() {
       closed: 0,
     }
 
-    for(var issue in issues){
+    for(const issue of issues){
       if(issue.state == 'open'){
         issue_stats.open ++;
       }
