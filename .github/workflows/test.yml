@@ -19,5 +19,5 @@ jobs:
       
       - name: print repo stats
         run: |
-          echo "PRs stats: ${{steps.stats.outputs.pulls}}"
-          echo "Issues stats: ${{steps.stats.outputs.issues}}"
+          echo "PRs stats: ${{ steps.stats.outputs.pulls }}"
+          echo "Issues stats: ${{ steps.stats.outputs.issues }}"

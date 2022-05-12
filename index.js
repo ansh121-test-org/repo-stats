@@ -7,12 +7,12 @@ async function run() {
     const octokit = github.getOctokit(token);
     const context = github.context;
 
-    const issues = octokit.rest.issues.listForRepo({
+    const issues = await octokit.paginate(octokit.rest.issues.listForRepo, {
       owner: context.repo.owner,
       repo: context.repo.repo,
     });
 
-    const pulls = octokit.rest.pulls.list({
+    const pulls = await octokit.paginate(octokit.rest.pulls.list, {
       owner: context.repo.owner,
       repo: context.repo.repo,
     });
