@@ -12,18 +12,26 @@ async function run() {
       repo: context.repo.repo,
     });
 
-    console.log(issues[0]);
-    console.log(issues[0].state);
-    console.log(typeof issues[0].state );
-    console.log(issues[0].state == 'open');
-    console.log(issues[0].state == "open");
+    // console.log(issues[0]);
+    // console.log(issues[0].state);
+    // console.log(typeof issues[0].state );
+    // console.log(issues[0].state == 'open');
+    // console.log(issues[0].state == "open");
 
     const issue_stats = {
       open: 0,
       closed: 0,
     }
 
+    // const pull_stats = {
+    //   open: 0,
+    //   closed: 0,
+    //   merged:0,
+    // }
+
     for(const issue of issues){
+      console.log(issue.html_url);
+      console.log(issue.state);
       if(issue.state == 'open'){
         issue_stats.open ++;
       }
