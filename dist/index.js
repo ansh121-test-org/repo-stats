@@ -8482,6 +8482,8 @@ async function run() {
       repo: context.repo.repo,
     });
 
+    console.log(issues[0]);
+
     const issue_stats = {
       open: 0,
       closed: 0,
@@ -8495,7 +8497,7 @@ async function run() {
         issue_stats.closed ++;
       }
     }
-
+    
     // const pulls = await octokit.paginate(octokit.rest.pulls.list, {
     //   owner: context.repo.owner,
     //   repo: context.repo.repo,
